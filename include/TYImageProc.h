@@ -46,7 +46,7 @@ struct DepthSpeckleFilterParameters {
 /// @retval TY_STATUS_NULL_POINTER      Any depth, param or depth->buffer is NULL.
 /// @retval TY_STATUS_INVALID_PARAMETER param->max_speckle_size <= 0 or param->max_speckle_diff <= 0
 TY_CAPI TYDepthSpeckleFilter (TY_IMAGE_DATA* depthImage
-        , const DepthSpeckleFilterParameters* param
+        , const struct DepthSpeckleFilterParameters* param
         );
 
 
@@ -75,7 +75,7 @@ TY_CAPI TYDepthEnhenceFilter (const TY_IMAGE_DATA* depthImages
         , int imageNum
         , TY_IMAGE_DATA *guide
         , TY_IMAGE_DATA *output
-        , const DepthEnhenceParameters* param
+        , const struct DepthEnhenceParameters* param
         );
 
 

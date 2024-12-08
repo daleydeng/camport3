@@ -1450,7 +1450,7 @@ TY_CAPI TYHasDevice               (TY_INTERFACE_HANDLE ifaceHandle, const char* 
 /// @retval TY_STATUS_INVALID_PARAMETER Device not found.
 /// @retval TY_STATUS_BUSY              Device has been opened.
 /// @retval TY_STATUS_DEVICE_ERROR      Open device failed.
-TY_CAPI TYOpenDevice              (TY_INTERFACE_HANDLE ifaceHandle, const char* deviceID, TY_DEV_HANDLE* outDeviceHandle, TY_FW_ERRORCODE* outFwErrorcode=NULL);
+TY_CAPI TYOpenDevice              (TY_INTERFACE_HANDLE ifaceHandle, const char* deviceID, TY_DEV_HANDLE* outDeviceHandle, TY_FW_ERRORCODE* outFwErrorcode); // outFwErrorcode=NULL
 
 /// @brief Open device by device IP, useful when a device is not listed.
 /// @param  [in]  ifaceHandle   Interface handle.
@@ -1494,7 +1494,7 @@ TY_CAPI TYForceDeviceIP           (TY_INTERFACE_HANDLE ifaceHandle, const char* 
 /// @retval TY_STATUS_OK        Succeed.
 /// @retval TY_STATUS_INVALID_HANDLE    Invalid device handle.
 /// @retval TY_STATUS_IDLE              Device has been closed.
-TY_CAPI TYCloseDevice             (TY_DEV_HANDLE hDevice, bool reboot=false);
+TY_CAPI TYCloseDevice             (TY_DEV_HANDLE hDevice, bool reboot); // reboot=false
 
 
 /// @brief Get base info of the open device.

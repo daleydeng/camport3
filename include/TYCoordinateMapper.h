@@ -51,7 +51,7 @@ TY_CAPI   TYMapDepthToPoint3d       (const TY_CAMERA_CALIB_INFO* src_calib,
                                      uint32_t depthW, uint32_t depthH,
                                      const TY_PIXEL_DESC* depthPixels, uint32_t count,
                                      TY_VECT_3F* point3d,
-                                     float f_scale_unit = 1.0f);
+                                     float f_scale_unit); // f_scale_unit = 1.0f
 
 /// @brief Map 3D points to pixels on depth image. Reverse operation of TYMapDepthToPoint3d.
 /// @param  [in]  dst_calib             Target depth image's calibration data.
@@ -65,7 +65,7 @@ TY_CAPI   TYMapPoint3dToDepth       (const TY_CAMERA_CALIB_INFO* dst_calib,
                                      const TY_VECT_3F* point3d, uint32_t count,
                                      uint32_t depthW, uint32_t depthH,
                                      TY_PIXEL_DESC* depth,
-                                     float f_scale_unit = 1.0f);
+                                     float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Map depth image to 3D points. 0 depth pixels maps to (NAN, NAN, NAN).
 /// @param  [in]  src_calib             Depth image's calibration data.
@@ -78,7 +78,7 @@ TY_CAPI   TYMapDepthImageToPoint3d  (const TY_CAMERA_CALIB_INFO* src_calib,
                                      int32_t imageW, int32_t imageH,
                                      const uint16_t* depth,
                                      TY_VECT_3F* point3d, 
-                                     float f_scale_unit = 1.0f);
+                                     float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Fill depth image empty region.
 /// @param  [in]  depth                 Depth image pixels.
@@ -97,7 +97,7 @@ TY_CAPI   TYDepthImageFillEmptyRegion(uint16_t* depth, uint32_t depthW, uint32_t
 TY_CAPI   TYMapPoint3dToDepthImage  (const TY_CAMERA_CALIB_INFO* dst_calib,
                                      const TY_VECT_3F* point3d, uint32_t count,
                                      uint32_t depthW, uint32_t depthH, uint16_t* depth,
-                                     float f_target_scale = 1.0f);
+                                     float f_target_scale ); // f_scale_unit = 1.0f
 
 /// @brief Map 3D points to another coordinate.
 /// @param  [in]  extrinsic             Extrinsic matrix.
@@ -131,7 +131,7 @@ static inline TY_STATUS TYMapDepthToColorCoordinate(
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t mappedW, uint32_t mappedH,
                   TY_PIXEL_DESC* mappedDepth,
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Map original depth image to color coordinate depth image.
 /// @param  [in]  depth_calib           Depth image's calibration data.
@@ -148,7 +148,7 @@ static inline TY_STATUS TYMapDepthImageToColorCoordinate(
                   uint32_t depthW, uint32_t depthH, const uint16_t* depth,
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t mappedW, uint32_t mappedH, uint16_t* mappedDepth, 
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Create depth image to color coordinate lookup table.
 /// @param  [in]  depth_calib           Depth image's calibration data.
@@ -166,7 +166,7 @@ static inline TY_STATUS TYCreateDepthToColorCoordinateLookupTable(
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t mappedW, uint32_t mappedH,
                   TY_PIXEL_DESC* lut,
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Map original RGB pixels to depth coordinate.
 /// @param  [in]  depth_calib           Depth image's calibration data.
@@ -191,7 +191,7 @@ static inline TY_STATUS TYMapRGBPixelsToDepthCoordinate(
 	uint32_t   min_distance,
 	uint32_t   max_distance,
 	TY_PIXEL_COLOR_DESC* dst,
-	float f_scale_unit = 1.0f);
+	float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Map original RGB image to depth coordinate RGB image.
 /// @param  [in]  depth_calib           Depth image's calibration data.
@@ -210,7 +210,7 @@ static inline TY_STATUS TYMapRGBImageToDepthCoordinate(
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t rgbW, uint32_t rgbH, const uint8_t* inRgb,
                   uint8_t* mappedRgb,
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Map original RGB48 image to depth coordinate RGB image.
 /// @param  [in]  depth_calib           Depth image's calibration data.
@@ -229,7 +229,7 @@ static inline TY_STATUS TYMapRGB48ImageToDepthCoordinate(
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t rgbW, uint32_t rgbH, const uint16_t* inRgb,
                   uint16_t* mappedRgb, 
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
 
 /// @brief Map original MONO16 image to depth coordinate MONO16 image.
 /// @param  [in]  depth_calib           Depth image's calibration data.
@@ -248,7 +248,7 @@ static inline TY_STATUS TYMapMono16ImageToDepthCoordinate(
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t rgbW, uint32_t rgbH, const uint16_t* gray,
                   uint16_t* mappedGray, 
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
                   
 
 /// @brief Map original MONO8 image to depth coordinate MONO8 image.
@@ -268,7 +268,7 @@ static inline TY_STATUS TYMapMono8ImageToDepthCoordinate(
                   const TY_CAMERA_CALIB_INFO* color_calib,
                   uint32_t monoW, uint32_t monoH, const uint8_t* inMono,
                   uint8_t* mappedMono,
-                  float f_scale_unit = 1.0f);
+                  float f_scale_unit ); // f_scale_unit = 1.0f
 
 
 #define TYMAP_CHECKRET(f, bufToFree) \
