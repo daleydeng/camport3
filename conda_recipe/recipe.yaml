@@ -6,8 +6,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/percipioxyz/camport3/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: d65260342e74afc7300e8cde448d2989202615c8a7321e6e426204daa95d5fe3
+  git: https://github.com/daleydeng/camport3.git
+  branch: master
 
 build:
   number: 1000
