@@ -14,14 +14,17 @@ build:
 
 requirements:
   build:
+    - sysroot_linux-64
   host:
+    - libstdcxx
     - libudev1
     - libusb
   run:
 
+
 tests:
   - package_contents:
-      include: 
+      include:
         - camport3/TYApi.h
       lib:
         - libtycam.so
@@ -29,5 +32,5 @@ tests:
 about:
   homepage: https://github.com/percipioxyz/camport3
   summary: Percipio Camera Software Development Kit
-  description: This software development kit provides C/C++ API and sample applications to control and capture images from Percipio camera. The samples demonstrate how to get depth image, 3D point cloud , color and ir image from the depth camera. | 
+  description: This software development kit provides C/C++ API and sample applications to control and capture images from Percipio camera. The samples demonstrate how to get depth image, 3D point cloud , color and ir image from the depth camera. |
     SDK sample's GUI needs Opencv2.4.8+. opencv dependency can be removed if if you do not need GUI.
